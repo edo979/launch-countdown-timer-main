@@ -1,5 +1,5 @@
 import './scss/style.scss'
-import timer from './js/timer'
+import countdown from './js/countdown'
 
-const timerApp = timer()
-timerApp.init()
+const countdownApp = countdown()
+countdownApp.init()
