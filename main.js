@@ -1,5 +1,4 @@
 import './scss/style.scss'
-import countdown from './js/countdown'
+import { counter } from './js/counter'
 
-const countdownApp = countdown()
-countdownApp.init()
+counter.tick()
