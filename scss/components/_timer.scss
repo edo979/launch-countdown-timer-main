@@ -35,7 +35,7 @@
     }
 
     &-bottom {
-      background-color: $Very-dark-blue-400;
+      background-color: $Dark-desaturated-blue;
       z-index: 1;
     }
 
@@ -46,7 +46,7 @@
 
       .timer_number-bottom {
         z-index: 2;
-        animation: flip 0.4s ease-in;
+        animation: flip 0.3s ease-in;
       }
     }
 

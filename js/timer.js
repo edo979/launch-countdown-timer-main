@@ -1,7 +1,15 @@
-let timerApp = {
-  init: function () {
-    console.log('timer is starting')
-  },
+let timerApp = () => {
+  const secondsEl = document.querySelector('[data-timer="seconds"]'),
+    tick = () => {
+      setInterval(() => toggleFlipClass(), 1000)
+    },
+    toggleFlipClass = () => secondsEl.classList.toggle('flip')
+
+  return {
+    init: function () {
+      tick()
+    },
+  }
 }
 
 export default timerApp

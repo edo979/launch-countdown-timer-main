@@ -1,4 +1,5 @@
 import './scss/style.scss'
-import timerApp from './js/timer'
+import timer from './js/timer'
 
+const timerApp = timer()
 timerApp.init()
