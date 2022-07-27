@@ -1,7 +1,9 @@
 @import 'reset';
 
 .timer {
-  &_seconds {
+  display: flex;
+
+  &_card {
     outline: 1px solid red;
   }
 }
