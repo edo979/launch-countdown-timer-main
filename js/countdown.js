@@ -1,4 +1,4 @@
-let timerApp = () => {
+export default () => {
   const secondsEl = document.querySelector('[data-timer="seconds"]'),
     tick = () => {
       setInterval(() => toggleFlipClass(), 1000)
@@ -11,5 +11,3 @@ let timerApp = () => {
     },
   }
 }
-
-export default timerApp
