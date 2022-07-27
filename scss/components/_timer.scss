@@ -3,11 +3,21 @@
 
   &_number {
     padding: 1rem;
+    width: 100px;
+    height: 60px;
+
+    overflow: hidden;
 
     font-size: var(--fs-800);
     color: $Soft-red;
 
-    background-color: $Dark-desaturated-blue;
+    &--top {
+      background-color: $Dark-desaturated-blue;
+    }
+
+    &--bottom {
+      background-color: $Very-dark-blue-400;
+    }
   }
 
   &_title {
