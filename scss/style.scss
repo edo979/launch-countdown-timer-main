@@ -1,9 +1,20 @@
+@use 'vars' as *;
 @import 'reset';
 
 .timer {
   display: flex;
 
-  &_card {
-    outline: 1px solid red;
+  &_number {
+    padding: 1rem;
+
+    font-size: var(--fs-800);
+    color: $Soft-red;
+
+    background-color: $Dark-desaturated-blue;
+  }
+
+  &_title {
+    text-align: center;
+    text-transform: uppercase;
   }
 }
