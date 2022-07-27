@@ -19,8 +19,14 @@
       position: absolute;
       inset: 0;
 
-      display: grid;
-      place-content: center;
+      overflow: hidden;
+
+      p {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 35px;
+      }
     }
 
     &-top {
@@ -31,6 +37,32 @@
     &-bottom {
       background-color: $Very-dark-blue-400;
       z-index: 1;
+    }
+
+    &.flip {
+      .timer_number-top {
+        z-index: 1;
+      }
+
+      .timer_number-bottom {
+        z-index: 2;
+        animation: flip 0.4s ease-in;
+      }
+    }
+
+    @keyframes flip {
+      from {
+        height: 0;
+      }
+      40% {
+        height: 50%;
+      }
+      60% {
+        height: 50%;
+      }
+      to {
+        height: 100%;
+      }
     }
   }
 
