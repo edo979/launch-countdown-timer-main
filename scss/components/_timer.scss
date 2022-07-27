@@ -2,21 +2,35 @@
   display: flex;
 
   &_number {
-    padding: 1rem;
-    width: 100px;
-    height: 60px;
+    position: relative;
+
+    width: 120px;
+    height: 150px;
 
     overflow: hidden;
 
     font-size: var(--fs-800);
     color: $Soft-red;
 
-    &--top {
-      background-color: $Dark-desaturated-blue;
+    line-height: 1;
+
+    &-top,
+    &-bottom {
+      position: absolute;
+      inset: 0;
+
+      display: grid;
+      place-content: center;
     }
 
-    &--bottom {
+    &-top {
+      background-color: $Dark-desaturated-blue;
+      z-index: 2;
+    }
+
+    &-bottom {
       background-color: $Very-dark-blue-400;
+      z-index: 1;
     }
   }
 
