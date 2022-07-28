@@ -11,24 +11,26 @@ class Counter {
     const topFillNumberEl = document.getElementById('flip-fill-top')
     topFillNumberEl.textContent = this.seconds
 
+    const topBackNumberEl = document.getElementById('flip-back')
+    topBackNumberEl.textContent = this.seconds
+
     // set flip class to inner flip-card
+    document.getElementById('flip-card-inner').style.opacity = '1'
     this.secondsEl.querySelector('.flip-card_inner').classList.toggle('flip')
 
-    // after flip set bottom card number
-    const bottomNumberEl = document.getElementById('flip-bottom')
-    bottomNumberEl.textContent = this.seconds
+    setTimeout(() => {
+      // reset cards get ready for next flip
+      document.getElementById('flip-card-inner').style.opacity = '0'
 
-    // reset cards get ready for next flip, set numbers
-    const topFrontNumberEl = document.getElementById('flip-front')
-    topFrontNumberEl.textContent = this.seconds
+      this.secondsEl.querySelector('.flip-card_inner').classList.toggle('flip')
 
-    setTimeout(
-      () =>
-        this.secondsEl
-          .querySelector('.flip-card_inner')
-          .classList.toggle('flip'),
-      500
-    )
+      const topFrontNumberEl = document.getElementById('flip-front')
+      topFrontNumberEl.textContent = this.seconds
+
+      // after flip set bottom card number
+      const bottomNumberEl = document.getElementById('flip-bottom')
+      bottomNumberEl.textContent = this.seconds
+    }, 400)
   }
 
   changeTime() {
