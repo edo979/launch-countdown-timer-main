@@ -12,6 +12,11 @@ $Dark-desaturated-blue: hsl(236, 21%, 26%);
 $Very-dark-blue-400: hsl(235, 16%, 14%);
 $Very-dark-blue-100: hsl(234, 17%, 12%);
 
+:root {
+  --flip-top-bgr: hsl(236, 21%, 26%);
+  --flip-bot-bgr: hsl(235, 16%, 14%);
+}
+
 html {
   font-size: 14px;
 }

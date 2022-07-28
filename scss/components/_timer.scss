@@ -1,4 +1,7 @@
 .timer {
+  --top-p-pos: 40px;
+  --bot-p-pos: -35px;
+
   display: flex;
 
   &_number {
@@ -33,10 +36,10 @@
 
       overflow: hidden;
 
-      background-color: $Very-dark-blue-400;
+      background-color: var(--flip-bot-bgr);
 
       p {
-        top: -35px;
+        top: var(--bot-p-pos);
       }
     }
 
@@ -88,20 +91,20 @@
   }
 
   &_front {
-    background-color: $Dark-desaturated-blue;
+    background-color: var(--flip-top-bgr);
 
     p {
-      top: 40px;
+      top: var(--top-p-pos);
     }
   }
 
   &_back {
     transform: rotateX(180deg);
 
-    background-color: $Very-dark-blue-400;
+    background-color: var(--flip-bot-bgr);
 
     p {
-      top: -35px;
+      top: var(--bot-p-pos);
     }
   }
 }
