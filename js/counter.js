@@ -38,10 +38,10 @@ class Counter {
   }
 
   tick() {
-    setInterval(() => {
-      this.changeTime()
-      //this.toggleFlipClass()
-    }, 1000)
+    // setInterval(() => {
+    //   this.changeTime()
+    //   //this.toggleFlipClass()
+    // }, 1000)
   }
 }
 
