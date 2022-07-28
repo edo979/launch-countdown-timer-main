@@ -26,8 +26,15 @@
       }
     }
 
+    // number-top and flip-card-front is the same
+    // part of flip counter
     &-top {
       inset: 0 0 50% 0;
+      background-color: var(--flip-top-bgr);
+
+      p {
+        top: var(--top-p-pos);
+      }
     }
 
     &-bottom {
@@ -73,7 +80,9 @@
 
     transform-style: preserve-3d;
     transform-origin: bottom center;
-    transform: rotateX(0deg);
+    transform: rotateX(50deg);
+
+    transition: transform 0.4s ease-in;
 
     z-index: 5;
   }
@@ -92,10 +101,6 @@
 
   &_front {
     background-color: var(--flip-top-bgr);
-
-    p {
-      top: var(--top-p-pos);
-    }
   }
 
   &_back {
