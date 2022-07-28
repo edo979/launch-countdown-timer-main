@@ -7,8 +7,6 @@
     width: 120px;
     height: 150px;
 
-    overflow: hidden;
-
     font-size: var(--fs-800);
     color: $Soft-red;
 
@@ -18,37 +16,27 @@
     &-bottom {
       position: absolute;
 
-      overflow: hidden;
-
       p {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        top: 40px;
       }
     }
 
     &-top {
       inset: 0 0 50% 0;
-
-      background-color: $Dark-desaturated-blue;
-      z-index: 3;
     }
 
     &-bottom {
-      inset: 0;
-      background-color: $Very-dark-blue-400;
+      inset: 50% 0 0 0;
       z-index: 2;
-    }
 
-    &.flip {
-      .timer_number-top {
-        z-index: 1;
-      }
+      overflow: hidden;
 
-      .timer_number-bottom {
-        z-index: 2;
-        animation: flip 0.3s ease-in;
+      background-color: $Very-dark-blue-400;
+
+      p {
+        top: -35px;
       }
     }
 
@@ -74,14 +62,46 @@
   }
 }
 
-.card-top {
-  transform-origin: bottom center;
-  transform: rotateX(0deg);
+.flip-card {
+  &_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
 
-  // -webkit-backface-visibility: hidden;
-  // backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform-origin: bottom center;
+    transform: rotateX(0deg);
 
-  &--back {
-    transform: rotateY(180deg);
+    z-index: 5;
+  }
+
+  &_back,
+  &_front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    overflow: hidden;
+  }
+
+  &_front {
+    background-color: $Dark-desaturated-blue;
+
+    p {
+      top: 40px;
+    }
+  }
+
+  &_back {
+    transform: rotateX(180deg);
+
+    background-color: $Very-dark-blue-400;
+
+    p {
+      top: -35px;
+    }
   }
 }
