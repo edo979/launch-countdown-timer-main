@@ -3,6 +3,7 @@
   --height: 65px;
   --top-p-pos: 10px;
   --bot-p-pos: -23px;
+  --b-radius: 5px;
   --fs: 40px;
 
   display: flex;
@@ -28,8 +29,12 @@
       }
     }
 
+    // this div is flip card, can't have overflow
+    // hidden because flip it self.
+    // use it for styling only and positioning
     &-top {
       inset: 0 0 50% 0;
+      border-radius: var(--b-radius) var(--b-radius) 0 0;
 
       color: var(--flip-top-f-clr);
       background-color: var(--flip-top-bgr);
@@ -41,6 +46,7 @@
 
     &-bottom {
       inset: 50% 0 0 0;
+      border-radius: 0 0 var(--b-radius) var(--b-radius);
       z-index: 2;
 
       overflow: hidden;
@@ -84,6 +90,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    border-radius: var(--b-radius, 5px);
 
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -103,6 +110,59 @@
 
     p {
       top: var(--bot-p-pos);
+    }
+  }
+}
+
+.circle-border {
+  --radius: 4px;
+  overflow: hidden;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    width: var(--radius);
+    height: 4px;
+    background-color: black;
+  }
+
+  &::before {
+    left: 0;
+    transform: translateX(-25%);
+  }
+  &::after {
+    right: 0;
+    transform: translateX(25%);
+  }
+
+  &--bottom {
+    &::after,
+    &::before {
+      bottom: 0;
+    }
+
+    &::before {
+      border-radius: 0% 100% 0% 100% / 100% 100% 0% 0%;
+    }
+
+    &::after {
+      border-radius: 100% 0% 0% 100% / 100% 100% 0% 0%;
+    }
+  }
+
+  &--top {
+    &::after,
+    &::before {
+      top: 0;
+    }
+
+    &::before {
+      border-radius: 100% 0% 100% 0% / 0% 0% 100% 100%;
+    }
+
+    &::after {
+      border-radius: 0% 100% 0% 100% / 0% 0% 100% 100%;
     }
   }
 }
