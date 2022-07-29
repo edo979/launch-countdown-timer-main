@@ -1,16 +1,19 @@
 .timer {
-  --top-p-pos: 40px;
-  --bot-p-pos: -35px;
+  --width: 70px;
+  --height: 65px;
+  --top-p-pos: 10px;
+  --bot-p-pos: -23px;
+  --fs: 40px;
 
   display: flex;
 
   &_number {
     position: relative;
 
-    width: 120px;
-    height: 150px;
+    width: var(--width);
+    height: var(--height);
 
-    font-size: var(--fs-800);
+    font-size: var(--fs);
 
     line-height: 1;
 
