@@ -1,15 +1,15 @@
 class Counter {
-  seconds = 0
+  #seconds = 0
 
   secondsEl = document.querySelector('[data-timer="seconds"]')
 
   constructor(minutes = 0, seconds = 0) {
-    this.seconds = seconds
+    this.#seconds = seconds
     this.minutes = minutes
   }
 
   get seconds() {
-    return this.seconds.toLocaleString(undefined, {
+    return this.#seconds.toLocaleString(undefined, {
       minimumIntegerDigits: 2,
       useGrouping: false,
     })
@@ -19,7 +19,7 @@ class Counter {
    * @param {number} value
    */
   set seconds(value) {
-    this.seconds = value
+    this.#seconds = value
   }
 
   flipCard(timeUnitEl) {
