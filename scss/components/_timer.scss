@@ -63,8 +63,11 @@
   }
 
   &_title {
+    font-size: var(--fs-300);
+    color: $Grayish-blue;
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: 3px;
   }
 }
 

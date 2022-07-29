@@ -5,6 +5,13 @@ body {
   text-align: center;
   height: 100%;
   width: 100%;
+
+  background-color: $Very-dark-blue-400;
+  background-image: url('../images/pattern-hills.svg'),
+    url('../images/bg-stars.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: 90% 100%, top center;
+  background-size: 300%, auto;
 }
 
 .attribution {

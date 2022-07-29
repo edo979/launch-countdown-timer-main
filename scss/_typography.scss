@@ -1,10 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap');
 
 :root {
+  --fs-300: 0.5rem;
   --fs-400: 1rem;
+  --fs-500: 1.2rem;
+
+  --primary-header: var(--fs-500);
 }
 
 html {
   font-family: 'Red Hat Text', sans-serif;
   font-size: 14px;
+}
+
+h1 {
+  margin-inline: auto;
+  width: 25ch;
+
+  font-size: var(--primary-header);
+  color: $White;
+
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  line-height: 1.4;
 }
