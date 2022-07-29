@@ -1,6 +1,17 @@
+.main-container {
+  text-align: center;
+
+  background-color: $Very-dark-blue-400;
+  background-image: url('../images/pattern-hills.svg'),
+    url('../images/bg-stars.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: 90% 100%, top center;
+  background-size: 250% 27%, auto;
+}
+
 .social {
   position: absolute;
-  bottom: 1rem;
+  bottom: 3.25rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
