@@ -122,7 +122,8 @@
 }
 
 .circle-border {
-  --radius: 4px;
+  --radius: 3.5px;
+
   overflow: hidden;
 
   &::after,
@@ -131,7 +132,7 @@
     position: absolute;
     width: var(--radius);
     aspect-ratio: 1;
-    background-color: black;
+    background-color: $Very-dark-blue-100;
   }
 
   &::before {
