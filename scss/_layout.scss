@@ -2,9 +2,11 @@ body {
   height: 100vh;
 }
 .main-container {
-  text-align: center;
   height: 100%;
   width: 100%;
+  padding-top: 140px;
+
+  text-align: center;
 
   background-color: $Very-dark-blue-400;
   background-image: url('../images/pattern-hills.svg'),
@@ -12,6 +14,10 @@ body {
   background-repeat: no-repeat, no-repeat;
   background-position: 90% 100%, top center;
   background-size: 300%, auto;
+}
+
+h1 {
+  margin-bottom: 60px;
 }
 
 .attribution {
