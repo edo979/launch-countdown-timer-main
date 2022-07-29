@@ -11,7 +11,6 @@
     height: 150px;
 
     font-size: var(--fs-800);
-    color: $Soft-red;
 
     line-height: 1;
 
@@ -26,10 +25,10 @@
       }
     }
 
-    // number-top and flip-card-front is the same
-    // part of flip counter
     &-top {
       inset: 0 0 50% 0;
+
+      color: var(--flip-top-f-clr);
       background-color: var(--flip-top-bgr);
 
       p {
@@ -43,6 +42,7 @@
 
       overflow: hidden;
 
+      color: var(--flip-bot-f-clr);
       background-color: var(--flip-bot-bgr);
 
       p {
@@ -95,6 +95,7 @@
   &_back {
     transform: rotateX(180deg);
 
+    color: var(--flip-bot-f-clr);
     background-color: var(--flip-bot-bgr);
 
     p {
