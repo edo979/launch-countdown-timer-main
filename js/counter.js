@@ -1,9 +1,9 @@
 class Counter {
   seconds = 0
 
-  constructor(minutes = 0, seconds = 0) {
-    this.secondsEl = document.querySelector('[data-timer="seconds"]')
+  secondsEl = document.querySelector('[data-timer="seconds"]')
 
+  constructor(minutes = 0, seconds = 0) {
     this.seconds = seconds
     this.minutes = minutes
   }
@@ -22,29 +22,25 @@ class Counter {
     this.seconds = value
   }
 
-  flipCard() {
-    // set number in top background card
-    const topFillNumberEl = document.getElementById('flip-fill-top')
+  flipCard(timeUnitEl) {
+    const topFillNumberEl = timeUnitEl.querySelector('#flip-fill-top'),
+      topBackNumberEl = timeUnitEl.querySelector('#flip-back'),
+      flipInnerEl = timeUnitEl.querySelector('#flip-card-inner'),
+      topFrontNumberEl = timeUnitEl.querySelector('#flip-front'),
+      bottomNumberEl = timeUnitEl.querySelector('#flip-bottom')
+
+    // set number before flip then flip card
     topFillNumberEl.textContent = this.seconds
-
-    const topBackNumberEl = document.getElementById('flip-back')
     topBackNumberEl.textContent = this.seconds
+    flipInnerEl.style.opacity = '1'
+    flipInnerEl.classList.toggle('flip')
 
-    // set flip class to inner flip-card
-    document.getElementById('flip-card-inner').style.opacity = '1'
-    this.secondsEl.querySelector('.flip-card_inner').classList.toggle('flip')
-
+    // after flip, make card invisible
+    // reset rotation and set numbers
     setTimeout(() => {
-      // reset cards get ready for next flip
-      document.getElementById('flip-card-inner').style.opacity = '0'
-
-      this.secondsEl.querySelector('.flip-card_inner').classList.toggle('flip')
-
-      const topFrontNumberEl = document.getElementById('flip-front')
+      flipInnerEl.style.opacity = '0'
+      flipInnerEl.classList.toggle('flip')
       topFrontNumberEl.textContent = this.seconds
-
-      // after flip set bottom card number
-      const bottomNumberEl = document.getElementById('flip-bottom')
       bottomNumberEl.textContent = this.seconds
     }, 400)
   }
@@ -52,7 +48,6 @@ class Counter {
   changeTime() {
     this.seconds--
     this.isTimeUnitFromBegining('seconds')
-    //console.log(this.seconds, this.minutes)
   }
 
   isTimeUnitFromBegining(timeUnit) {
@@ -79,7 +74,7 @@ class Counter {
   tick() {
     setInterval(() => {
       this.changeTime()
-      this.flipCard()
+      this.flipCard(this.secondsEl)
     }, 1000)
   }
 }
