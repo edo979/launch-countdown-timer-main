@@ -8,7 +8,7 @@
 
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: var(--flip-gap, 1rem);
 
   &_number {
     position: relative;
