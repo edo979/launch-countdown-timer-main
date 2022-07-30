@@ -2,6 +2,15 @@ body {
   background-color: $Very-dark-blue-400;
 }
 
+.screenreader {
+  position: absolute !important; /* Outside the DOM flow */
+  height: 1px;
+  width: 1px; /* Nearly collapsed */
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE 7+ only support clip without commas */
+  clip: rect(1px, 1px, 1px, 1px); /* All other browsers */
+}
+
 .main-container {
   position: relative;
   height: max(600px, 100vh);

@@ -9,6 +9,7 @@ class Counter {
   minutesEl = document.querySelector('[data-timer="minutes"]')
   hoursEl = document.querySelector('[data-timer="hours"]')
   daysEl = document.querySelector('[data-timer="days"]')
+  countdownTimeEl = document.querySelector('[data-timer="countdown-time"]')
 
   constructor(days = 14, hours = 0, minutes = 0, seconds = 0) {
     this.#seconds = seconds
@@ -102,6 +103,7 @@ class Counter {
     } else {
       this.seconds--
       this.updateTime('seconds')
+      this.showCurrentTime()
     }
   }
 
@@ -156,6 +158,17 @@ class Counter {
 
   stop() {
     clearInterval(this.tickIntervalID)
+  }
+
+  showCurrentTime() {
+    this.countdownTimeEl.querySelector('#days').textContent =
+      'days ' + this.days
+    this.countdownTimeEl.querySelector('#hours').textContent =
+      'hours ' + this.hours
+    this.countdownTimeEl.querySelector('#minutes').textContent =
+      'minutes ' + this.minutes
+    this.countdownTimeEl.querySelector('#seconds').textContent =
+      'seconds ' + this.seconds
   }
 }
 
