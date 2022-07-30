@@ -16,6 +16,7 @@
 
   h1 {
     width: max-content;
+    min-height: 75px;
   }
 
   .main-container {
@@ -30,6 +31,8 @@
     --bot-p-pos: -38px;
     --b-radius: 8px;
     --fs: 75px;
+    --flip-shadow: -10px;
+    --title-mt: 2rem;
   }
 
   .circle-border {

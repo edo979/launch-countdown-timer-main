@@ -22,7 +22,7 @@
     &::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      bottom: var(--flip-shadow, -5px);
       left: 0;
       right: 0;
       height: 25%;
@@ -73,7 +73,7 @@
   }
 
   &_title {
-    margin-top: 1rem;
+    margin-top: var(--title-mt, 1rem);
 
     font-size: var(--fs-300);
     color: $Grayish-blue;
