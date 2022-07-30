@@ -1,2 +1,14 @@
 @media (min-width: 50em) {
+  .timer {
+    --width: 148px;
+    --height: 140px;
+    --top-p-pos: 32px;
+    --bot-p-pos: -38px;
+    --b-radius: 8px;
+    --fs: 75px;
+  }
+
+  .circle-border {
+    --radius: 7px;
+  }
 }
