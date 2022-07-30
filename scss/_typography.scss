@@ -6,6 +6,8 @@
   --fs-500: 1.2rem;
 
   --primary-header: var(--fs-500);
+
+  --l-spacing: 6px;
 }
 
 html {
@@ -21,6 +23,6 @@ h1 {
   color: $White;
 
   text-transform: uppercase;
-  letter-spacing: 6px;
+  letter-spacing: var(--l-spacing);
   line-height: 1.4;
 }

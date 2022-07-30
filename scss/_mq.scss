@@ -1,4 +1,16 @@
 @media (min-width: 50em) {
+  :root {
+    --fs-300: 1rem;
+    --fs-400: 1rem;
+    --fs-500: 1.5rem;
+
+    --l-spacing: 10px;
+  }
+
+  h1 {
+    width: max-content;
+  }
+
   .timer {
     --width: 148px;
     --height: 140px;

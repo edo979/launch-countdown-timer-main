@@ -79,7 +79,7 @@
     color: $Grayish-blue;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: calc(var(--l-spacing) / 2);
   }
 }
 
