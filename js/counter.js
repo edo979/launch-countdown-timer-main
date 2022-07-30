@@ -2,7 +2,7 @@ class Counter {
   #seconds = 0
   #minutes = 0
   #hours = 0
-  #days = 14
+  #days = 0
   tickIntervalID = undefined
 
   secondsEl = document.querySelector('[data-timer="seconds"]')
@@ -10,7 +10,7 @@ class Counter {
   hoursEl = document.querySelector('[data-timer="hours"]')
   daysEl = document.querySelector('[data-timer="days"]')
 
-  constructor(days = 1, hours = 0, minutes = 0, seconds = 0) {
+  constructor(days = 14, hours = 0, minutes = 0, seconds = 0) {
     this.#seconds = seconds
     this.#minutes = minutes
     this.#hours = hours
@@ -91,53 +91,57 @@ class Counter {
     }, 400)
   }
 
-  changeTime() {
+  tick() {
     if (
       this.days == 0 &&
       this.hours == 0 &&
       this.minutes == 0 &&
       this.seconds == 0
     ) {
-      clearInterval(this.tickIntervalID)
+      this.stop()
     } else {
       this.seconds--
-      this.isTimeUnitFromBegining('seconds')
-      this.flipCard(this.secondsEl, this.seconds)
+      this.updateTime('seconds')
     }
   }
 
-  isTimeUnitFromBegining(timeUnit) {
+  updateTime(timeUnit) {
     switch (timeUnit) {
       case 'seconds':
         if (this.seconds < 0) {
-          this.seconds = 1
+          this.seconds = 59
           this.minutes--
-          this.isTimeUnitFromBegining('minutes')
-          this.flipCard(this.minutesEl, this.minutes)
+          this.updateTime('minutes')
         }
+
+        this.flipCard(this.secondsEl, this.seconds)
         break
 
       case 'minutes':
         if (this.minutes < 0) {
-          this.minutes = 1
+          this.minutes = 59
           this.hours--
-          this.isTimeUnitFromBegining('hours')
-          this.flipCard(this.hoursEl, this.hours)
+          this.updateTime('hours')
         }
+
+        this.flipCard(this.minutesEl, this.minutes)
         break
 
       case 'hours':
         if (this.hours < 0) {
-          this.hours = 1
+          this.hours = 59
           this.days--
-          this.isTimeUnitFromBegining('days')
-          this.flipCard(this.daysEl, this.days)
+          this.updateTime('days')
         }
+
+        this.flipCard(this.hoursEl, this.hours)
         break
 
       case 'days':
-        if (this.days < 0) {
-          this.days = 0
+        // func tick() don't allow this value
+        // be below 0
+        if (this.days >= 0) {
+          this.flipCard(this.daysEl, this.days)
         }
         break
 
@@ -146,8 +150,12 @@ class Counter {
     }
   }
 
-  tick() {
-    this.tickIntervalID = setInterval(() => this.changeTime(), 1000)
+  start() {
+    this.tickIntervalID = setInterval(() => this.tick(), 1000)
+  }
+
+  stop() {
+    clearInterval(this.tickIntervalID)
   }
 }
 
