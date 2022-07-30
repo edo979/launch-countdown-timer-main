@@ -99,7 +99,7 @@ class Counter {
     switch (timeUnit) {
       case 'seconds':
         if (this.seconds < 0) {
-          this.seconds = 2
+          this.seconds = 1
           this.minutes--
           this.isTimeUnitFromBegining('minutes')
           this.flipCard(this.minutesEl, this.minutes)
@@ -108,7 +108,7 @@ class Counter {
 
       case 'minutes':
         if (this.minutes < 0) {
-          this.minutes = 2
+          this.minutes = 1
           this.hours--
           this.isTimeUnitFromBegining('hours')
           this.flipCard(this.hoursEl, this.hours)
@@ -117,7 +117,16 @@ class Counter {
 
       case 'hours':
         if (this.hours < 0) {
-          this.hours = 2
+          this.hours = 1
+          this.days--
+          this.isTimeUnitFromBegining('days')
+          this.flipCard(this.daysEl, this.days)
+        }
+        break
+
+      case 'days':
+        if (this.days < 0) {
+          this.days = 0
         }
         break
 
