@@ -11,17 +11,17 @@
     display: grid;
     place-content: center;
     grid-template-columns: min(100%, 1440px);
-    grid-template-rows: min(100%, 800px);
-  }
-
-  h1 {
-    width: max-content;
-    min-height: 75px;
+    grid-template-rows: min(max(100%, 600px), 800px);
   }
 
   .main-container {
     background-position: bottom center, top center;
     background-size: auto, auto;
+  }
+
+  h1 {
+    width: max-content;
+    min-height: 75px;
   }
 
   .timer {
