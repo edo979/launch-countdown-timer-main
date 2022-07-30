@@ -3,13 +3,14 @@ class Counter {
   #minutes = 0
   #hours = 0
   #days = 14
+  tickIntervalID = undefined
 
   secondsEl = document.querySelector('[data-timer="seconds"]')
   minutesEl = document.querySelector('[data-timer="minutes"]')
   hoursEl = document.querySelector('[data-timer="hours"]')
   daysEl = document.querySelector('[data-timer="days"]')
 
-  constructor(days = 14, hours = 0, minutes = 0, seconds = 0) {
+  constructor(days = 1, hours = 0, minutes = 0, seconds = 0) {
     this.#seconds = seconds
     this.#minutes = minutes
     this.#hours = hours
@@ -91,8 +92,18 @@ class Counter {
   }
 
   changeTime() {
-    this.seconds--
-    this.isTimeUnitFromBegining('seconds')
+    if (
+      this.days == 0 &&
+      this.hours == 0 &&
+      this.minutes == 0 &&
+      this.seconds == 0
+    ) {
+      clearInterval(this.tickIntervalID)
+    } else {
+      this.seconds--
+      this.isTimeUnitFromBegining('seconds')
+      this.flipCard(this.secondsEl, this.seconds)
+    }
   }
 
   isTimeUnitFromBegining(timeUnit) {
@@ -136,10 +147,7 @@ class Counter {
   }
 
   tick() {
-    setInterval(() => {
-      this.changeTime()
-      this.flipCard(this.secondsEl, this.seconds)
-    }, 1000)
+    this.tickIntervalID = setInterval(() => this.changeTime(), 1000)
   }
 }
 
