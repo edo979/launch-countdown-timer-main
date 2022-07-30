@@ -1,13 +1,19 @@
 class Counter {
   #seconds = 0
   #minutes = 0
+  #hours = 0
+  #days = 14
 
   secondsEl = document.querySelector('[data-timer="seconds"]')
   minutesEl = document.querySelector('[data-timer="minutes"]')
+  hoursEl = document.querySelector('[data-timer="hours"]')
+  daysEl = document.querySelector('[data-timer="days"]')
 
-  constructor(minutes = 0, seconds = 0) {
+  constructor(days = 14, hours = 0, minutes = 0, seconds = 0) {
     this.#seconds = seconds
     this.#minutes = minutes
+    this.#hours = hours
+    this.#days = days
   }
 
   get seconds() {
@@ -25,8 +31,33 @@ class Counter {
     return this.numberToFormatedString(this.#minutes)
   }
 
+  /**
+   * @param {number} value
+   */
   set minutes(value) {
     this.#minutes = value
+  }
+
+  get hours() {
+    return this.numberToFormatedString(this.#hours)
+  }
+
+  /**
+   * @param {number} value
+   */
+  set hours(value) {
+    this.#hours = value
+  }
+
+  get days() {
+    return this.numberToFormatedString(this.#days)
+  }
+
+  /**
+   * @param {number} value
+   */
+  set days(value) {
+    this.#days = value
   }
 
   numberToFormatedString(num) {
@@ -78,6 +109,15 @@ class Counter {
       case 'minutes':
         if (this.minutes < 0) {
           this.minutes = 2
+          this.hours--
+          this.isTimeUnitFromBegining('hours')
+          this.flipCard(this.hoursEl, this.hours)
+        }
+        break
+
+      case 'hours':
+        if (this.hours < 0) {
+          this.hours = 2
         }
         break
 
