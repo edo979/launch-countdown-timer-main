@@ -152,7 +152,19 @@ class Counter {
     }
   }
 
+  setFlipCardValues() {
+    const timeUnits = ['days', 'hours', 'minutes', 'seconds']
+
+    timeUnits.forEach((timeUnit) => {
+      const flipCardEl = document.querySelector(`[data-timer="${timeUnit}"]`)
+
+      flipCardEl.querySelector('#flip-front').textContent = this[timeUnit]
+      flipCardEl.querySelector('#flip-bottom').textContent = this[timeUnit]
+    })
+  }
+
   start() {
+    this.setFlipCardValues()
     this.tickIntervalID = setInterval(() => this.tick(), 1000)
   }
 
