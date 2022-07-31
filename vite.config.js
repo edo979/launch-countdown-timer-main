@@ -1,5 +1,5 @@
 export default {
-  base: '/launch-countdown-timer-main/',
+  base: '/',
   css: {
     devSourcemap: true,
   },
